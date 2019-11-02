@@ -1,0 +1,42 @@
+.food-diary {
+   h1 {
+      font-size: 25px;
+   }
+
+   .food-container {
+      font-size: 17px;
+      width: 940px;
+      margin: 20px auto;
+   }
+
+   .food-table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+   }
+   colgroup {
+   }
+   .meal-header {
+      color: #00548f;
+      font-weight: bold;
+      font-size: 18px;
+      text-transform: capitalize;
+      text-align: left;
+      padding: 15px 5px 10px 5px;
+   }
+
+   .nutrient-column {
+      background: #00548f;
+      color: #fff;
+      padding: 5px 10px 5px 10px;
+      border: 1px solid #fff;
+      font-size: 12px;
+      font-weight: normal;
+      text-align: center;
+      text-transform: capitalize;
+
+      .subtitle {
+         text-transform: lowercase;
+      }
+   }
+}
