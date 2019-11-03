@@ -1,0 +1,19 @@
+Tracker app
+
+#1 User searches for food in the API.
+#2 Fetch the data from API and,
+#3 Save data in state
+#4 User saves food in diary (database post)
+#5 App shows database diary food
+
+
+
+firebase tables
+
+user: userId, fullname, email, password
+diary: foodText, date, userId, protein, carbs, fat, amount, size, mealName, 
+	kan render diary ud fra userId og datoen.
+
+
+TODO
+- Data i firebase
