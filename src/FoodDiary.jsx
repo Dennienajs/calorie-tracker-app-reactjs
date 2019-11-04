@@ -1,5 +1,6 @@
 import React from "react";
 import "./FoodDiary.scss";
+import FoodDiaryContent from "./FoodDiaryContent";
 
 const FoodDiary = () => {
    return (
@@ -43,8 +44,8 @@ const FoodDiary = () => {
                      <div className="subtitle"> </div>
                   </td>
                </tr>
-               <tr>
-                  {/* TODO tryk for at redigere... */}
+               <FoodDiaryContent />
+               {/* <tr>
                   <td>5 eggs</td>
                   <td>368</td>
                   <td>32</td>
@@ -59,15 +60,7 @@ const FoodDiary = () => {
                   <td>3</td>
                   <td>28</td>
                   <td>x</td>
-               </tr>
-               <tr>
-                  <td>5 eggs</td>
-                  <td>368</td>
-                  <td>32</td>
-                  <td>3</td>
-                  <td>28</td>
-                  <td>x</td>
-               </tr>
+               </tr> */}
 
                <tr className="buttom-bar">
                   <td className="add-food">Add Food</td>

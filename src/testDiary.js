@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { firebase } from "../firebase";
+import { firebase } from "./firebase";
 
 // Custom hook -> useDiary -> henter alle diary indtastninger fra en given dato.
 export const useDiary = diaryDate => {
@@ -29,6 +29,3 @@ export const useDiary = diaryDate => {
 
    return { diary };
 };
-
-// bruges:
-// const {diary} = useDiary(dato);

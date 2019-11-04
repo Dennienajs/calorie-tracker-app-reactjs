@@ -17,3 +17,5 @@ diary: foodText, date, userId, protein, carbs, fat, amount, size, mealName,
 
 TODO
 - Data i firebase
+
+
