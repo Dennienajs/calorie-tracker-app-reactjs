@@ -7,13 +7,14 @@
       font-size: 17px;
       width: 940px;
       margin: 20px auto;
+
+      .food-table {
+         border-collapse: collapse;
+         border-spacing: 0;
+         width: 66%;
+      }
    }
 
-   .food-table {
-      border-collapse: collapse;
-      border-spacing: 0;
-      width: 100%;
-   }
    colgroup {
    }
    .meal-header {
@@ -38,5 +39,8 @@
       .subtitle {
          text-transform: lowercase;
       }
+   }
+   tr {
+      text-align: center;
    }
 }
