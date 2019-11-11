@@ -1,13 +1,20 @@
 .food-diary-content {
-   tr.macros {
-      td {
-         background-color: rgb(238, 238, 238);
-         text-transform: capitalize;
-      }
-   }
+  tr.macros {
+    .meal {
+      width: fit-content;
+    }
 
-   tr.buttom-bar {
-      color: rgb(93, 93, 255);
-      font-weight: bold;
-   }
+    td {
+      width: 10px;
+      background-color: rgb(238, 238, 238);
+      text-transform: capitalize;
+      padding: 2px 15px 5px 10px;
+      border-bottom: 1px solid #e6e6e6;
+    }
+  }
+
+  tr.bottom-bar {
+    color: rgb(93, 93, 255);
+    font-weight: bold;
+  }
 }

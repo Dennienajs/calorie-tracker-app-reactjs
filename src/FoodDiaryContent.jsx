@@ -44,7 +44,7 @@ const FoodDiaryContent = ({ date }) => {
          {diary.map(food => (
             <>
                <tr className="macros" key={food.id}>
-                  <td>
+                  <td className="meal">
                      {food.foodText}, {food.amount}{" "}
                      {food.size !== "" ? food.size : ""}
                   </td>
@@ -59,7 +59,7 @@ const FoodDiaryContent = ({ date }) => {
                
             </>
          ))}
-         <tr className="buttom-bar">
+         <tr className="bottom-bar">
             <td className="add-food">Add Food</td>
             <td>
                <span className="macro-value">{allMacros.calories}</span>
