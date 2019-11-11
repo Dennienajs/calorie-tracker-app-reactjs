@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Tracker from "./Tracker";
+import Tracker from "../../components/Tracker/Tracker";
 
 const AddFoodPage = () => {
   const [food, setFood] = useState({
@@ -22,6 +22,7 @@ const AddFoodPage = () => {
       <form action="Search" onSubmit={handleSubmit}>
         <input
           type="text"
+          placeholder="search for food, eg. oats"
           value={newFood.foodText}
           onChange={e => {
             setNewFood({ ...food, foodText: e.target.value });

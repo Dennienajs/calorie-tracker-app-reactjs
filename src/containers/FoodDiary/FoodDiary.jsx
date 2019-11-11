@@ -1,7 +1,7 @@
 import React from "react";
 import "./FoodDiary.scss";
-import FoodDiaryContent from "./FoodDiaryContent.jsx";
-import FoodDiaryHeaderDummie from "./FoodDiaryHeaderDummie";
+import FoodDiaryHeaderDummie from "../../components/FoodDiaryHeaderDummie/FoodDiaryHeaderDummie";
+import FoodDiaryContent from "../../components/FoodDiaryContent/FoodDiaryContent";
 
 const FoodDiary = () => {
   const date = "02-11-2019";

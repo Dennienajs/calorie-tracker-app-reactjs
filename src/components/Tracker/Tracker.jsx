@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Tracker.scss";
-import { app_id, app_key } from "./edamam";
+import { app_id, app_key } from "../../edamam";
 
 const Tracker = ({ amount, size, foodText }) => {
   const [itemData, setItemData] = useState({

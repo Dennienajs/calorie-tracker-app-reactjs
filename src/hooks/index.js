@@ -1,34 +1,30 @@
 import { useState, useEffect } from "react";
 import { firebase } from "../firebase";
 
-// Custom hook -> useDiary -> henter alle diary indtastninger fra en given dato.
+// Custom hook -> useDiary -> henter alle diary indtastninger fra en given dato (diaryDate)
 export const useDiary = diaryDate => {
-   const [diary, setDiary] = useState([]);
+  const [diary, setDiary] = useState([]);
 
-   useEffect(() => {
-      let unsubscribe = firebase
-         .firestore()
-         .collection("diary")
-         .where("userId", "==", "1234567890");
+  useEffect(() => {
+    let unsubscribe = firebase
+      .firestore()
+      .collection("diary")
+      .where("userId", "==", "1234567890");
 
-      // henter diary ud fra datoen.
-      unsubscribe = diaryDate
-         ? unsubscribe.where("date", "==", diaryDate)
-         : unsubscribe;
+    // henter diary ud fra datoen.
+    unsubscribe = diaryDate
+      ? unsubscribe.where("date", "==", diaryDate)
+      : unsubscribe;
 
-      unsubscribe = unsubscribe.onSnapshot(snapshot => {
-         const diaryData = snapshot.docs.map(diarySnap => ({
-            id: diarySnap.id,
-            ...diarySnap.data()
-         }));
-         setDiary(diaryData);
-      });
+    unsubscribe = unsubscribe.onSnapshot(snapshot => {
+      const diaryData = snapshot.docs.map(diarySnap => ({
+        id: diarySnap.id,
+        ...diarySnap.data()
+      }));
+      setDiary(diaryData);
+    });
+    return () => unsubscribe();
+  }, [diaryDate]);
 
-      return () => unsubscribe();
-   }, [diaryDate]);
-
-   return { diary };
+  return { diary };
 };
-
-// bruges:
-// const {diary} = useDiary(dato);
