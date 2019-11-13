@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Tracker from "../../components/Tracker/Tracker";
+import "./AddFoodPage.scss";
 
 const AddFoodPage = () => {
   const [food, setFood] = useState({
@@ -17,7 +18,7 @@ const AddFoodPage = () => {
   };
 
   return (
-    <div>
+    <div className="add-food-page">
       <h1>Add Food Page</h1>
       <form action="Search" onSubmit={handleSubmit}>
         <input

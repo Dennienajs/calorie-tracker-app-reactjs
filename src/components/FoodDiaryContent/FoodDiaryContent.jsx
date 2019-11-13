@@ -57,18 +57,26 @@ const FoodDiaryContent = ({ date }) => {
       ))}
       <tr className="bottom-bar">
         <td className="add-food">Add Food</td>
-        <td>
-          <span className="macro-value">{allMacros.calories}</span>
-        </td>
-        <td>
-          <span className="macro-value">{allMacros.protein}</span>
-        </td>
-        <td>
-          <span className="macro-value">{allMacros.carbs}</span>
-        </td>
-        <td>
-          <span className="macro-value">{allMacros.fat}</span>
-        </td>
+
+        {/* Error loading OR empty diary. */}
+        {allMacros.calories === 0 ? (
+          <td className="macro-value"> </td>
+        ) : (
+          <>
+            <td>
+              <span className="macro-value">{allMacros.calories}</span>
+            </td>
+            <td>
+              <span className="macro-value">{allMacros.protein}</span>
+            </td>
+            <td>
+              <span className="macro-value">{allMacros.carbs}</span>
+            </td>
+            <td>
+              <span className="macro-value">{allMacros.fat}</span>
+            </td>
+          </>
+        )}
       </tr>{" "}
     </div>
   );

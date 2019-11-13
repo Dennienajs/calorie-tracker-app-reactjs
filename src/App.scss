@@ -1,9 +1,28 @@
-/*
-TODO: Fix variabler & mixins senere
-*/
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  // Hvis jeg vil fjerne den hvide padding/margin i Navbaren
+  // margin: 0;
+  // padding: 0;
+}
+
+/* ******************************************************
+
+****************************************************** */
 
 $Darker-blue: #00548f;
 $Lighter-blue: #0072bf;
+
+$maxWidth: 700px;
 
 .app {
   font-family: Arial, Helvetica, sans-serif;

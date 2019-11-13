@@ -1,27 +1,43 @@
-ul {
-  background-color: #0072bf;
+@import "../../App.scss";
 
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+header {
+  background-color: $Lighter-blue;
+  width: 100%;
 
-  display: flex;
-  justify-content: left;
-  flex-direction: row;
+  nav {
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: left;
+      flex-direction: row;
 
-  li a {
-    text-decoration: none;
-    text-transform: uppercase;
-    line-height: 45px;
-    font-size: 13px;
-    font-weight: 500;
-    color: #ffffff !important;
-    padding: 0 21px;
-    display: block;
-  }
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      margin: auto;
 
-  li a:hover {
-    background-color: #00548f;
-    color: white;
+      // --
+
+      max-width: $maxWidth;
+
+      li a {
+        text-decoration: none;
+        text-transform: uppercase;
+        line-height: 45px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #ffffff !important;
+        padding: 0 21px;
+        display: block;
+      }
+
+      li a:hover {
+        background-color: $Lighter-blue;
+        color: white;
+      }
+    }
   }
 }

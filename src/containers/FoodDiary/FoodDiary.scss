@@ -1,47 +1,56 @@
+@import "../../App.scss";
+
 .food-diary {
-   h1 {
-      font-size: 25px;
-   }
+  display: grid;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  //   grid-template-columns: 1fr auto;
+  max-width: $maxWidth();
+  margin: auto;
 
-   .food-container {
-      font-size: 17px;
-      width: 940px;
-      margin: 20px auto;
+  h1 {
+    font-size: 25px;
+  }
 
-      .food-table {
-         border-collapse: collapse;
-         border-spacing: 0;
-         width: 66%;
-      }
-   }
+  .food-container {
+    font-size: 17px;
+    width: 940px;
+    margin: 20px auto;
 
-   colgroup {
-   }
-   .meal-header {
-      color: #00548f;
-      font-weight: bold;
-      font-size: 18px;
-      text-transform: capitalize;
-      text-align: left;
-      padding: 15px 5px 10px 5px;
-   }
+    .food-table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 66%;
+    }
+  }
 
-   .nutrient-column {
-      background: #00548f;
-      color: #fff;
-      padding: 5px 10px 5px 10px;
-      border: 1px solid #fff;
-      font-size: 12px;
-      font-weight: normal;
-      text-align: center;
-      text-transform: capitalize;
+  colgroup {
+  }
+  .meal-header {
+    color: #00548f;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: capitalize;
+    text-align: left;
+    padding: 15px 5px 10px 5px;
+  }
 
-      .subtitle {
-         text-transform: lowercase;
-      }
-   }
-   tr {
-      text-align: center;
-   }
-   
+  .nutrient-column {
+    background: #00548f;
+    color: #fff;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #fff;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: capitalize;
+
+    .subtitle {
+      text-transform: lowercase;
+    }
+  }
+  tr {
+    text-align: center;
+  }
 }
