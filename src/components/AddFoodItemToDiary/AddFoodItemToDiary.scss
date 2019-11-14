@@ -1,0 +1,11 @@
+@import "../../App.scss";
+
+.add-food-item-to-diary {
+  &__button {
+    background-color: $Lighter-blue;
+    color: white;
+    border: none;
+    padding: 7px;
+    cursor: pointer;
+  }
+}

@@ -18,7 +18,7 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route path="/addfood">
-            <AddFoodPage />
+            <AddFoodPage date={date} />
           </Route>
           <Route>
             <FoodDiary />
