@@ -11,25 +11,8 @@ const FoodDiary = () => {
 
       <div className="food-container">
         <table className="food-table" id="food-table">
-          {/* KOLONNER MED måltider og makrofordeling */}
-          {/* HVAD FANDEN VAR DET JEG SKULLE BRUGE DETTE TIL */}
-
-          {/* <colgroup>
-                  <col className="col-1 meal" />
-                  <col className="col-2 kcal" />
-                  <col className="col-2 protein" />
-                  <col className="col-2 carbs" />
-                  <col className="col-2 fat" />
-                  <col className="col 6 remove" />
-               </colgroup> */}
-
-          {/* TABLE CONTENT... */}
-          <tbody>
-            <FoodDiaryHeaderDummie />
-
-            {/* **** BREAKFAST CONTENT **** */}
-            <FoodDiaryContent date={date} />
-          </tbody>
+          <FoodDiaryHeaderDummie />
+          <FoodDiaryContent date={date} />
         </table>
       </div>
     </div>

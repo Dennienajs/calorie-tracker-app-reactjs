@@ -1,9 +1,6 @@
 import React from "react";
 import "./AddFoodItemToDiary.scss";
-/* BRUGES TIL DB:
-userId, mealName, date, foodText, amount, size, protein, carbs, fat
-
-*/
+import { firebase } from "../../firebase";
 
 const AddFoodItemToDiary = ({
   userId = "1234567890",
@@ -26,6 +23,24 @@ const AddFoodItemToDiary = ({
           protein = ${protein},
           carbs = ${carbs},
           fat = ${fat}`);
+    addFoodItemToDiary();
+  };
+
+  const addFoodItemToDiary = () => {
+    firebase
+      .firestore()
+      .collection("diary")
+      .add({
+        userId,
+        mealName,
+        date,
+        foodText,
+        amount,
+        size,
+        protein,
+        carbs,
+        fat
+      });
   };
 
   return (

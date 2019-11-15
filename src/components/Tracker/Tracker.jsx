@@ -15,9 +15,9 @@ const Tracker = ({ amount, size, foodText, item }) => {
         size !== "0" ? " - size: " + size : " "
       }`}</h3>
       {/* FIX LOADING ... */}
-      <div className="tracker-search-data">
-        {kcal.quantity !== "" ? (
-          <p>Loading...</p>
+      <table className="tracker-search-data">
+        {typeof kcal.quantity !== "number" ? (
+          <p>Loading...</p> // TODO: virker ikke.
         ) : (
           <tbody>
             <tr>
@@ -45,7 +45,7 @@ const Tracker = ({ amount, size, foodText, item }) => {
             {console.log("item.kcal" + kcal.quantity)}
           </tbody>
         )}
-      </div>
+      </table>
     </div>
   );
 };

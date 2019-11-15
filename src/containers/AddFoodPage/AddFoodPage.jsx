@@ -47,6 +47,8 @@ const AddFoodPage = ({ date }) => {
   };
 
   const item = itemData.totalNutrientsKCal;
+  const selectedUserId = "1234567890";
+  const selectedMealName = "Breakfast"; //Options: Breakfast, Lunch, Dinner.
 
   return (
     <div className="add-food-page">
@@ -58,6 +60,14 @@ const AddFoodPage = ({ date }) => {
           value={newFood.foodText}
           onChange={e => {
             setNewFood({ ...food, foodText: e.target.value });
+          }}
+        />
+        <input
+          type="text"
+          placeholder="grams, eg. 100g"
+          value={newFood.amount}
+          onChange={e => {
+            setNewFood({ ...food, amount: e.target.value });
           }}
         />
         <button>Search</button>
@@ -75,7 +85,13 @@ const AddFoodPage = ({ date }) => {
         size={food.size}
         foodText={food.foodText}
         date={date}
+        protein={(item.PROCNT_KCAL.quantity / 4).toFixed(1)}
+        carbs={(item.CHOCDF_KCAL.quantity / 4).toFixed(1)}
+        fat={(item.FAT_KCAL.quantity / 9).toFixed(1)}
+        userId={selectedUserId}
+        mealName={selectedMealName}
       />
+      {console.log("item test: " + (item.PROCNT_KCAL.quantity / 4).toFixed(1))}
     </div>
   );
 };

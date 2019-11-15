@@ -3,7 +3,7 @@ import "./FoodDiaryHeaderDummie.scss";
 
 const FoodDiaryHeaderDummie = () => {
   return (
-    <div>
+    <thead>
       <tr className="meal-header">
         <td className="alt meal-name">Breakfast</td>
 
@@ -28,7 +28,7 @@ const FoodDiaryHeaderDummie = () => {
           <div className="subtitle"> </div>
         </td>
       </tr>
-    </div>
+    </thead>
   );
 };
 
