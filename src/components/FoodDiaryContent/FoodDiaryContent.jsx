@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./FoodDiaryContent.scss";
+import { Link } from "react-router-dom";
 
 import { useDiary } from "../../hooks/index";
 
@@ -31,13 +32,15 @@ const FoodDiaryContent = ({ date }) => {
           <td>{protein}</td>
           <td>{carbs}</td>
           <td>{fat}</td>
-          <td>x</td>
+          <td className="delete">x</td>
           {/* DELETE BUTTON. */}
         </tr>
       ))}
 
       <tr className="bottom-bar">
-        <td className="add-food">Add Food</td>
+        <td className="add-food">
+          <Link to="/addfood">Add food</Link>
+        </td>
       </tr>
     </tbody>
   );

@@ -14,10 +14,14 @@ const Tracker = ({ amount, size, foodText, item }) => {
       <h3>{`Food: ${foodText} - ${amount}${
         size !== "0" ? " - size: " + size : " "
       }`}</h3>
-      {/* FIX LOADING ... */}
+
       <table className="tracker-search-data">
         {typeof kcal.quantity !== "number" ? (
-          <p>Loading...</p> // TODO: virker ikke.
+          <tbody>
+            <tr>
+              <td>Loading...</td>
+            </tr>
+          </tbody>
         ) : (
           <tbody>
             <tr>
