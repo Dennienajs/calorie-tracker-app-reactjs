@@ -6,6 +6,9 @@ Calorie Tracker App - for fun project.
 #4 User saves food in diary (database post)
 #5 App shows database diary food
 
+	-- Ovenstående er "basically" done.
+	-- Skal bare udvides og gøres bedre.
+
 
 Firebase Tables
 	user: userId, fullname, email, password
