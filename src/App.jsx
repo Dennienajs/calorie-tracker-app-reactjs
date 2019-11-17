@@ -5,29 +5,26 @@ import FoodDiary from "./containers/FoodDiary/index";
 import AddFoodPage from "./containers/AddFoodPage/AddFoodPage";
 import Navbar from "./containers/Navbar/index";
 
-import { useDiary } from "./hooks"; // virker ikke ...
-// import { useDiary } from "./testDiary";
-
 const App = () => {
-  const date = "02-11-2019";
-  const { diary } = useDiary(date);
+   // const date = new Date("02-11-2019"); // Giver også (forkert) tidspunkt
 
-  return (
-    <Router>
-      <div className="app">
-        <Navbar />
-        <Switch>
-          <Route path="/addfood">
-            <AddFoodPage date={date} />
-          </Route>
-          <Route>
-            <FoodDiary />
-            {console.log("diary: ", diary)}
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+   const date = "02-11-2019";
+
+   return (
+      <Router>
+         <div className="app">
+            <Navbar />
+            <Switch>
+               <Route path="/addfood">
+                  <AddFoodPage date={date} />
+               </Route>
+               <Route>
+                  <FoodDiary />
+               </Route>
+            </Switch>
+         </div>
+      </Router>
+   );
 };
 
 export default App;
