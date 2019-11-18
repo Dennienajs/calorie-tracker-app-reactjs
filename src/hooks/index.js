@@ -5,8 +5,8 @@ import { firebase } from "../firebase";
 export const useDiary = diaryDate => {
   const [diary, setDiary] = useState([]);
 
-  // unsubscribe bliver brugt. Den burde ikke brokke sig.
   useEffect(() => {
+    // unsubscribe bliver brugt. Den burde ikke brokke sig.
     let unsubscribe = firebase
       .firestore()
       .collection("diary")
