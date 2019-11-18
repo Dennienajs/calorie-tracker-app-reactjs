@@ -1,78 +1,73 @@
 import React, { useState, useEffect } from "react";
-import { useDiary } from "../../hooks";
+import { useDiary, useAllMealsTotals } from "../../hooks";
 import { Link } from "react-router-dom";
 
+// This is a fucking mess - please fix
 const FoodDiaryRenderMeals = ({ date, mealName, meal }) => {
-   const { diary } = useDiary(date, mealName); // custom hook til at hente alt diary
+  const { diary } = useDiary(date); // custom hook til at hente alt diary
 
-   const [totals, setTotals] = useState({
-      kcal: 0,
-      protein: 1,
-      carbs: 2,
-      fat: 3
-   });
+  let kcal = 0,
+    totalKcal = 0,
+    protein = 0,
+    totalProtein = 0,
+    carbs = 0,
+    totalCarbs = 0,
+    fat = 0,
+    totalFat = 0;
 
-   // kcal bliver brugt. Den burde ikke brokke sig.
-   let kcal, protein, carbs, fat;
+  const setAllMealTotals = food => {
+    // Protein and Carbs has 4 Kcal per gram. Fat has 9 Kcal per gram.
+    kcal = (
+      ((protein = Number(food.protein)) + (carbs = Number(food.carbs))) * 4 +
+      (fat = Number(food.fat)) * 9
+    ).toFixed(0);
 
-   // TODO: meal totals - (denne virker ikke ...)
-   //    function setMealTotals() {
-   //       diary.map(food => {
-   //          setTotals(
-   //             ...totals,
-   //             { protein: protein + food.protein },
-   //             { carbs: carbs + food.carbs },
-   //             { fat: fat + food.fat }
-   //          );
-   //          console.log("FOOD.PROTEIN: " + food.protein);
-   //       });
-   //    }
-   // //Virker heller ikke lige pt
-   //    useEffect(() => {
-   //       setMealTotals();
-   //       console.log("mealTotals set!");
-   //    }, []);
+    totalKcal += Number(kcal);
+    totalProtein += protein;
+    totalCarbs += carbs;
+    totalFat += fat;
 
-   return (
-      <>
-         <tr>
-            <td className="food-diary-render-meals-header">{meal}</td>
-         </tr>
-         {diary.map(food => (
-            <tr className="macros" key={food.id}>
-               {food.mealName === meal ? (
-                  <>
-                     <td className="meal">
-                        {`${food.foodText}, ${food.amount}
-            ${food.size !== "" && food.size !== "0" ? " " + food.size : ""}`}
-                     </td>
-                     <td>
-                        {(kcal =
-                           ((protein = Number(food.protein)) +
-                              (carbs = Number(food.carbs))) *
-                              4 +
-                           (fat = Number(food.fat)) * 9).toFixed(0)}
-                     </td>
-                     <td>{protein}</td>
-                     <td>{carbs}</td>
-                     <td>{fat}</td>
-                     <td className="delete">x</td>
-                  </>
-               ) : null}
-            </tr>
-         ))}
+    console.log(typeof totalKcal);
 
-         <tr className="bottom-bar">
-            <td className="add-food">
-               <Link to="/addfood">Add food</Link>
-            </td>
-            <td className="totals">{totals.kcal}</td>
-            <td className="totals">{totals.protein}</td>
-            <td className="totals">{totals.carbs}</td>
-            <td className="totals">{totals.fat}</td>
-         </tr>
-      </>
-   );
+    return { kcal, totalKcal, totalProtein, totalCarbs, totalFat };
+  };
+
+  return (
+    <>
+      <tr>
+        <td className="food-diary-render-meals-header">{meal}</td>
+      </tr>
+      {diary.map(food => (
+        <tr className="macros" key={food.id}>
+          {food.mealName === meal ? (
+            <>
+              <td className="meal">
+                {`${food.foodText}, ${food.amount}
+                  ${
+                    food.size !== "" && food.size !== "0" ? " " + food.size : ""
+                  }`}
+              </td>
+              <td>{setAllMealTotals(food).kcal}</td>
+              <td>{protein.toFixed(0)}</td>
+              <td>{carbs.toFixed(0)}</td>
+              <td>{fat.toFixed(0)}</td>
+              <td className="delete">x</td>
+            </>
+          ) : null}
+        </tr>
+      ))}
+
+      <tr className="bottom-bar">
+        <td className="add-food">
+          <Link to="/addfood">Add food</Link>
+        </td>
+        <td className="totals">{totalKcal.toFixed(0)}</td>
+        <td className="totals">{totalProtein.toFixed(0)}</td>
+        <td className="totals">{totalCarbs.toFixed(0)}</td>
+        <td className="totals">{totalFat.toFixed(0)}</td>
+      </tr>
+    </>
+  );
 };
 
 export default FoodDiaryRenderMeals;
