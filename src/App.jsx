@@ -1,30 +1,33 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
-import FoodDiary from "./containers/FoodDiary/index";
-import AddFoodPage from "./containers/AddFoodPage/AddFoodPage";
-import Navbar from "./containers/Navbar/index";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import FoodDiaryPage from "./containers/FoodDiaryPage";
+import AddFoodPage from "./containers/AddFoodPage";
+import Navbar from "./containers/Navbar";
+import moment from "moment";
 
 const App = () => {
-   // const date = new Date("02-11-2019"); // Giver også (forkert) tidspunkt
+  const date = "02-11-2019";
+  // const todaysDate = moment().format("MMMM Do YYYY"); // November 18th 2019, 9:10:14 pm
+  // const newDate = moment().calendar();
+  // console.log(newDate);
+  // console.log(todaysDate);
 
-   const date = "02-11-2019";
-
-   return (
-      <Router>
-         <div className="app">
-            <Navbar />
-            <Switch>
-               <Route path="/addfood">
-                  <AddFoodPage date={date} />
-               </Route>
-               <Route>
-                  <FoodDiary />
-               </Route>
-            </Switch>
-         </div>
-      </Router>
-   );
+  return (
+    <Router>
+      <div className="app">
+        <Navbar />
+        <Switch>
+          <Route path="/addfood">
+            <AddFoodPage date={date} />
+          </Route>
+          <Route>
+            <FoodDiaryPage date={date} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
 };
 
 export default App;
