@@ -3,7 +3,7 @@ import { useDiary, useAllMealsTotals } from "../../hooks";
 import { Link } from "react-router-dom";
 
 // This is a fucking mess - please fix
-const FoodDiaryRenderMeals = ({ date, mealName, meal }) => {
+const FoodDiaryRenderMeals = ({ date, mealName }) => {
   const { diary } = useDiary(date); // custom hook til at hente alt diary
 
   let kcal = 0,
@@ -27,19 +27,18 @@ const FoodDiaryRenderMeals = ({ date, mealName, meal }) => {
     totalCarbs += carbs;
     totalFat += fat;
 
-    console.log(typeof totalKcal);
-
+    // returns = set the variables outside this function.
     return { kcal, totalKcal, totalProtein, totalCarbs, totalFat };
   };
 
   return (
     <>
       <tr>
-        <td className="food-diary-render-meals-header">{meal}</td>
+        <td className="food-diary-render-meals-header">{mealName}</td>
       </tr>
       {diary.map(food => (
         <tr className="macros" key={food.id}>
-          {food.mealName === meal ? (
+          {food.mealName === mealName ? (
             <>
               <td className="meal">
                 {`${food.foodText}, ${food.amount}
