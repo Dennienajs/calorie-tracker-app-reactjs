@@ -37,21 +37,27 @@
       margin-left: 3px;
       margin-right: 3px;
       padding: 5px;
-      height: 60px;
+      height: 43px;
       align-items: center;
       font-size: 18px !important;
     }
     &__button {
       width: 40px;
       align-self: center;
+      border-style: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $Lighter-blue;
+      }
 
       &.prev {
-        border-bottom-left-radius: 15px;
-        border-top-left-radius: 15px;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
       }
       &.next {
-        border-bottom-right-radius: 15px;
-        border-top-right-radius: 15px;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
       }
     }
   }

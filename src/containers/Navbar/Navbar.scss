@@ -32,11 +32,10 @@ header {
         color: #ffffff !important;
         padding: 0 21px;
         display: block;
-      }
-
-      li a:hover {
-        background-color: $Lighter-blue;
-        color: white;
+        &:hover {
+          background-color: $Darker-blue;
+          color: white;
+        }
       }
     }
   }
