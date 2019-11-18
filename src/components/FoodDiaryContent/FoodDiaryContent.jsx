@@ -8,17 +8,13 @@ const lunch = "Lunch";
 const dinner = "Dinner";
 
 const FoodDiaryContent = ({ date, mealName }) => {
-   return (
-      <tbody className="food-diary-content">
-         <FoodDiaryRenderMeals
-            date={date}
-            mealName={mealName}
-            meal={breakfast}
-         />
-         <FoodDiaryRenderMeals date={date} mealName={mealName} meal={lunch} />
-         <FoodDiaryRenderMeals date={date} mealName={mealName} meal={dinner} />
-      </tbody>
-   );
+  return (
+    <tbody className="food-diary-content">
+      <FoodDiaryRenderMeals date={date} mealName={mealName} meal={breakfast} />
+      <FoodDiaryRenderMeals date={date} mealName={mealName} meal={lunch} />
+      <FoodDiaryRenderMeals date={date} mealName={mealName} meal={dinner} />
+    </tbody>
+  );
 };
 
 // TODO: ADD FOOD + BUTTOM "TOTAL"-BAR.
