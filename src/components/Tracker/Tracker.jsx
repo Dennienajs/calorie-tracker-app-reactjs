@@ -46,7 +46,6 @@ const Tracker = ({ amount, size, foodText, item }) => {
                 {kcal.quantity} {kcal.unit}
               </td>
             </tr>
-            {console.log("item.kcal" + kcal.quantity)}
           </tbody>
         )}
       </table>
