@@ -9,11 +9,54 @@
   max-width: $maxWidth();
   margin: auto;
 
-  h1 {
-    font-size: 25px;
+  // Line under the header
+  span {
+    width: $maxWidth;
+    border-bottom: 1px solid $Lighter-blue;
   }
 
-  .food-container {
+  &-heading,
+  h1 {
+    font-size: 27px;
+    color: $Darker-blue;
+    text-transform: capitalize;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 20px;
+    align-self: center;
+
+    &__text {
+      font-weight: bolder;
+    }
+    &__date,
+    button {
+      background-color: $Darker-blue;
+      color: white !important;
+      margin-left: 3px;
+      margin-right: 3px;
+      padding: 5px;
+      height: 60px;
+      align-items: center;
+      font-size: 18px !important;
+    }
+    &__button {
+      width: 40px;
+      align-self: center;
+
+      &.prev {
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+      }
+      &.next {
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+    }
+  }
+
+  .food-diary-container {
     font-size: 17px;
     width: 940px;
     margin: 20px auto;
@@ -25,8 +68,6 @@
     }
   }
 
-  colgroup {
-  }
   .meal-header {
     color: #00548f;
     font-weight: bold;
