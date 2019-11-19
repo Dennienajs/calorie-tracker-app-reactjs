@@ -6,9 +6,9 @@ import AddFoodItemToDiary from "../../components/AddFoodItemToDiary/AddFoodItemT
 
 const AddFoodPage = ({ date }) => {
   const [food, setFood] = useState({
-    amount: "100g",
-    size: "0",
-    foodText: "oats"
+    amount: "",
+    size: "",
+    foodText: ""
   });
   const [itemData, setItemData] = useState({
     calories: 0,
@@ -39,7 +39,6 @@ const AddFoodPage = ({ date }) => {
   }, [food.foodText, food.amount, food.size]);
 
   const [newFood, setNewFood] = useState(food);
-  console.log("NEW FOOD: ", newFood);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -48,29 +47,39 @@ const AddFoodPage = ({ date }) => {
 
   const item = itemData.totalNutrientsKCal;
   const selectedUserId = "1234567890";
-  const selectedMealName = "Breakfast"; //Options: Breakfast, Lunch, Dinner.
 
   return (
     <div className="add-food-page">
-      <h1>Add Food Page</h1>
+      <h1>add food to diary</h1>
       <form action="Search" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="search for food, eg. oats"
+          placeholder="FOOD - eg. oats, eggs"
           value={newFood.foodText}
           onChange={e => {
-            setNewFood({ ...food, foodText: e.target.value });
+            setNewFood({ ...newFood, foodText: e.target.value });
           }}
+          required
         />
         <input
           type="text"
-          placeholder="grams, eg. 100g"
+          placeholder="GRAMs - eg. 100g"
           value={newFood.amount}
           onChange={e => {
-            setNewFood({ ...food, amount: e.target.value });
+            setNewFood({ ...newFood, amount: e.target.value });
+          }}
+          required
+        />
+        <input
+          type="text"
+          placeholder="SIZE - (optional), eg. large"
+          value={newFood.size}
+          onChange={e => {
+            setNewFood({ ...newFood, size: e.target.value });
           }}
         />
-        <button>Search</button>
+
+        <button className="add-food-page__search">Search</button>
       </form>
 
       <Tracker
@@ -89,9 +98,7 @@ const AddFoodPage = ({ date }) => {
         carbs={(item.CHOCDF_KCAL.quantity / 4).toFixed(1)}
         fat={(item.FAT_KCAL.quantity / 9).toFixed(1)}
         userId={selectedUserId}
-        mealName={selectedMealName}
       />
-      {console.log("item test: " + (item.PROCNT_KCAL.quantity / 4).toFixed(1))}
     </div>
   );
 };
