@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useDiary, useAllMealsTotals } from "../../hooks";
+import React from "react";
+import { useDiary } from "../../hooks";
 import { Link } from "react-router-dom";
+import FoodDiaryHeaderDummie from "../FoodDiaryHeaderDummie";
 
 // This is a fucking mess - please fix
 const FoodDiaryRenderMeals = ({ date, mealName }) => {
