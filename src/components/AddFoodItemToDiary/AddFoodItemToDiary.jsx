@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AddFoodItemToDiary.scss";
 import { firebase } from "../../firebase";
 
@@ -14,16 +14,8 @@ const AddFoodItemToDiary = ({
   fat
 }) => {
   const handleAddToDiaryClick = () => {
-    console.log(`handleAddToDiaryClicked..Data: userId = ${userId},
-  mealName = ${mealName},
-          date = ${date},
-          foodText = ${foodText},
-          amount = ${amount},
-          size = ${size},
-          protein = ${protein},
-          carbs = ${carbs},
-          fat = ${fat}`);
     addFoodItemToDiary();
+    // TODO: some success message
   };
 
   const addFoodItemToDiary = () => {
@@ -32,7 +24,7 @@ const AddFoodItemToDiary = ({
       .collection("diary")
       .add({
         userId,
-        mealName,
+        mealName: selectedMealName,
         date,
         foodText,
         amount,
@@ -42,17 +34,26 @@ const AddFoodItemToDiary = ({
         fat
       });
   };
+  const [meals, setMeals] = useState(["Breakfast", "Lunch", "Dinner"]);
+  const [selectedMealName, setSelectedMealName] = useState("Breakfast");
 
   return (
     <div className="add-food-item-to-diary">
-      <p>AddFoodItemToDiary</p>
-
       <button
         className="add-food-item-to-diary__button"
         onClick={() => handleAddToDiaryClick()}
       >
-        Add To Diary
+        {`Add to ${selectedMealName}`}
       </button>
+      <select
+        className="add-food-item-to-diary__select"
+        value={selectedMealName}
+        onChange={e => setSelectedMealName(e.target.value)}
+      >
+        {meals.map(meal => (
+          <option value={meal}>{meal}</option>
+        ))}
+      </select>
     </div>
   );
 };
