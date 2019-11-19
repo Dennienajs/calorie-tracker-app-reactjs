@@ -26,4 +26,11 @@ $maxWidth: 488px;
 
 .app {
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  width: 100%;
+  width: $maxWidth;
 }
