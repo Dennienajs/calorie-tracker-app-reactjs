@@ -10,10 +10,10 @@ const Tracker = ({ amount, size, foodText, item }) => {
   //Overvej at smide nedenstående ind i component "Tracker" og omdøb denne fil til "TrackerList"
   return (
     <div className="tracker">
-      <h1>CALORIE TRACKER 101</h1>
-      <h3>{`Food: ${foodText} - ${amount}${
-        size !== "0" ? " - size: " + size : " "
-      }`}</h3>
+      <h1>search result</h1>
+      {foodText !== "" ? (
+        <h3>{` ${foodText}, ${amount}${size !== "" ? ", " + size : " "}`}</h3>
+      ) : null}
 
       <table className="tracker-search-data">
         {typeof kcal.quantity !== "number" ? (
