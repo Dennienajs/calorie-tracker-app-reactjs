@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./FoodDiaryPage.scss";
-import FoodDiaryHeaderDummie from "../../components/FoodDiaryHeaderDummie";
 import FoodDiaryContent from "../../components/FoodDiaryContent";
+import FoodDiaryHeaderDummie from "../../components/FoodDiaryHeaderDummie";
 
 const FoodDiaryPage = ({ date }) => {
   // const [date, setDate] = useState("02-11-2019");
@@ -20,14 +20,12 @@ const FoodDiaryPage = ({ date }) => {
           {"-->"}
         </button>
       </span>
-
       <div className="food-diary-container">
+        <FoodDiaryHeaderDummie />
         <table className="food-table" id="food-table">
-          <FoodDiaryHeaderDummie />
           <FoodDiaryContent date={selectedDate} mealName={mealName} />
-
-          <FoodDiaryHeaderDummie />
         </table>
+        <FoodDiaryHeaderDummie />
       </div>
     </div>
   );
