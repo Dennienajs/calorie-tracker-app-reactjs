@@ -1,0 +1,22 @@
+.bottom-bar-daily-total {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  text-transform: capitalize;
+  text-align: right;
+
+  .daily-totals {
+    padding: 7px;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    width: auto;
+
+    &.red {
+      color: red;
+    }
+    &.green {
+      color: green;
+    }
+  }
+}
