@@ -2,6 +2,7 @@ import React from "react";
 import { useDiary } from "../../hooks";
 import { Link } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { firebase } from "../../firebase";
 
 // This is a fucking mess - please fix
 const FoodDiaryRenderMeals = ({ date, mealName }) => {
@@ -32,6 +33,29 @@ const FoodDiaryRenderMeals = ({ date, mealName }) => {
     return { kcal, totalKcal, totalProtein, totalCarbs, totalFat };
   };
 
+  const handleOnDeleteClick = id => {
+    let confirmation = window.confirm(
+      "Are you sure you want to delete this food from your diary?"
+    );
+
+    confirmation ? deleteDiaryFoodById(id) : console.log("false");
+  };
+
+  const deleteDiaryFoodById = id => {
+    firebase
+      .firestore()
+      .collection("diary")
+      .doc(id)
+      .delete()
+      .then(() => {
+        window.alert("Food succesfully deleted!");
+      })
+      .catch(err => {
+        console.error("Error deleting food: ", err);
+        window.alert("Ooops, something went wrong. Please try again.");
+      });
+  };
+
   return (
     <>
       <tr>
@@ -51,7 +75,10 @@ const FoodDiaryRenderMeals = ({ date, mealName }) => {
               <td>{protein.toFixed(0)}</td>
               <td>{carbs.toFixed(0)}</td>
               <td>{fat.toFixed(0)}</td>
-              <td className="delete">
+              <td
+                className="delete"
+                onClick={() => handleOnDeleteClick(food.id)}
+              >
                 <FaRegTrashAlt />
               </td>
             </>
