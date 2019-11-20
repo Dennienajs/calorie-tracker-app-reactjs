@@ -1,7 +1,7 @@
 import React from "react";
 import { useDiary } from "../../hooks";
 import { Link } from "react-router-dom";
-import FoodDiaryHeaderDummie from "../FoodDiaryHeaderDummie";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 // This is a fucking mess - please fix
 const FoodDiaryRenderMeals = ({ date, mealName }) => {
@@ -51,7 +51,9 @@ const FoodDiaryRenderMeals = ({ date, mealName }) => {
               <td>{protein.toFixed(0)}</td>
               <td>{carbs.toFixed(0)}</td>
               <td>{fat.toFixed(0)}</td>
-              <td className="delete">x</td>
+              <td className="delete">
+                <FaRegTrashAlt />
+              </td>
             </>
           ) : null}
         </tr>
