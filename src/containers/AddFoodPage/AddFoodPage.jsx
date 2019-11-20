@@ -54,7 +54,7 @@ const AddFoodPage = ({ date }) => {
       <form action="Search" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="FOOD - eg. oats, eggs"
+          placeholder="FOOD - oats, eggs"
           value={newFood.foodText}
           onChange={e => {
             setNewFood({ ...newFood, foodText: e.target.value });
@@ -63,7 +63,7 @@ const AddFoodPage = ({ date }) => {
         />
         <input
           type="text"
-          placeholder="GRAMs - eg. 100g"
+          placeholder="AMOUNT - 100g, 5, 1l"
           value={newFood.amount}
           onChange={e => {
             setNewFood({ ...newFood, amount: e.target.value });
@@ -72,7 +72,7 @@ const AddFoodPage = ({ date }) => {
         />
         <input
           type="text"
-          placeholder="SIZE - (optional), eg. large"
+          placeholder="SIZE - (optional) large"
           value={newFood.size}
           onChange={e => {
             setNewFood({ ...newFood, size: e.target.value });
